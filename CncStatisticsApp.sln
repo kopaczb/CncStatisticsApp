@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CncStatisticsApp", "CncStatisticsApp\CncStatisticsApp.csproj", "{792441BB-1727-4EC3-A128-B6AC70834463}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CncStatisticsApp.Tests", "CncStatisticsApp.Tests\CncStatisticsApp.Tests.csproj", "{ABE958EA-9B3A-41B7-B0FC-95EA7CF3A343}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{792441BB-1727-4EC3-A128-B6AC70834463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{792441BB-1727-4EC3-A128-B6AC70834463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{792441BB-1727-4EC3-A128-B6AC70834463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE958EA-9B3A-41B7-B0FC-95EA7CF3A343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE958EA-9B3A-41B7-B0FC-95EA7CF3A343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE958EA-9B3A-41B7-B0FC-95EA7CF3A343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE958EA-9B3A-41B7-B0FC-95EA7CF3A343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
