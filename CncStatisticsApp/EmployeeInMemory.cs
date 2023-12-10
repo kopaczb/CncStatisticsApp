@@ -29,27 +29,6 @@ namespace StatisticsApp
                 throw new Exception("Invalid program value.");
             }
         }
-        public override void AddProgram(int program)
-        {
-            float programAsFloat = program;
-            this.AddProgram(programAsFloat);
-        }
-        public override void AddProgram(double program)
-        {
-            float programAsFloat = (float)program;
-            this.AddProgram(programAsFloat);
-        }
-        public override void AddProgram(string program)
-        {
-            if (float.TryParse(program, out float programAsFloat))
-            {
-                this.AddProgram(programAsFloat);
-            }
-            else
-            {
-                throw new Exception("String is not float");
-            }
-        }
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();

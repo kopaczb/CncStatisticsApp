@@ -18,7 +18,7 @@ namespace StatisticsApp.Tests
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(3003, statistics.maxProgram);
+            Assert.AreEqual(3003, statistics.MaxProgram);
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace StatisticsApp.Tests
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(3000, statistics.minProgram);
+            Assert.AreEqual(3000, statistics.MinProgram);
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace StatisticsApp.Tests
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(1, statistics.averagePrograms);
+            Assert.AreEqual(1, statistics.AveragePrograms);
         }
 
         [Test]
@@ -71,7 +71,7 @@ namespace StatisticsApp.Tests
             var statistics = employee.GetStatistics();
 
             // assert
-            Assert.AreEqual(5, statistics.countPrograms);
+            Assert.AreEqual(5, statistics.CountPrograms);
         }
     }
 }

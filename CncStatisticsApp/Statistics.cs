@@ -2,30 +2,30 @@
 {
     public class Statistics
     {
-        public float workingDays { get; private set; }
-        public float minProgram { get; private set; }
-        public float maxProgram { get; private set; }
-        public float countPrograms { get; private set; }
-        public float sumPrograms { get; private set; }
-        public float averagePrograms
+        public float WorkingDays { get; private set; }
+        public float MinProgram { get; private set; }
+        public float MaxProgram { get; private set; }
+        public float CountPrograms { get; private set; }
+        public float SumPrograms { get; private set; }
+        public float AveragePrograms
         {
             get
             {
-                return this.countPrograms / workingDays;
+                return this.CountPrograms / WorkingDays;
             }
         }
         public Statistics()
         {
-            this.workingDays = 5;
-            this.countPrograms = 0;
-            this.minProgram = float.MaxValue;
-            this.maxProgram = float.MinValue;
+            this.WorkingDays = 5;
+            this.CountPrograms = 0;
+            this.MinProgram = float.MaxValue;
+            this.MaxProgram = float.MinValue;
         }
         public void AddProgram(float program)
         {
-            this.countPrograms++;
-            this.minProgram = Math.Min(program, this.minProgram);
-            this.maxProgram = Math.Max(program, this.maxProgram);
+            this.CountPrograms++;
+            this.MinProgram = Math.Min(program, this.MinProgram);
+            this.MaxProgram = Math.Max(program, this.MaxProgram);
         }
     }
 }

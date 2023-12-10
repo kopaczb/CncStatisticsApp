@@ -11,7 +11,8 @@ namespace StatisticsApp
         void AddProgram(int program);
         void AddProgram(double program);
         void AddProgram(string program);
-        Statistics GetStatistics();
+        Statistics GetStatistics();        
+        void ShowStatistics();
         event StatisticsAddedDelegated StatisticsAdded;
     }
 }

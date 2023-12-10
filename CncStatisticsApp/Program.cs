@@ -11,12 +11,12 @@ while (!CloseApp)
     switch (employeeInput)
     {
         case "M" or "m":
-            ChoseStatisticsInMemoryFromMenuText();
-            AddProgramsToMemory();
+            ChooseStatisticsInMemoryFromMenuText();
+            AddPrograms(true);
             break;
         case "F" or "f":
-            ChoseStatisticsTxtFile();
-            AddProgramsToTxtFile();
+            ChooseStatisticsTxtFile();
+            AddPrograms(false);
             break;
         case "Q" or "q":
             GoodbyeInMenuText();
@@ -27,7 +27,8 @@ while (!CloseApp)
             continue;
     }
 }
-void AddProgramsToMemory()
+
+void AddPrograms(bool isInMemory)
 {
     string name = GetValueFromUser("\tPlease insert employee's first name: ");
     string surname = GetValueFromUser("\tPlease insert employee's surname: ");
@@ -35,9 +36,9 @@ void AddProgramsToMemory()
 
     if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname) && !string.IsNullOrEmpty(weekNumber))
     {
-        var employeeInMemory = new EmployeeInMemory(name, surname, weekNumber);
+        IEmployee employee = isInMemory ? new EmployeeInMemory(name, surname, weekNumber) : new EmployeeInFile(name, surname, weekNumber);
 
-        employeeInMemory.StatisticsAdded += EmployeeStatisticsAdded;
+        employee.StatisticsAdded += EmployeeStatisticsAdded;
         DescriptionStatisticsInMemoryText(name, surname, weekNumber);
 
         while (true)
@@ -50,52 +51,14 @@ void AddProgramsToMemory()
             }
             try
             {
-                employeeInMemory.AddProgram(input);
+                employee.AddProgram(input);
             }
             catch (Exception e)
             {
                 Console.WriteLine($"Exception catched: {e.Message}");
             }
         }
-        employeeInMemory.ShowStatistics();
-    }
-    else
-    {
-        BadPersonalDataInMemoryText();
-    }
-}
-
-void AddProgramsToTxtFile()
-{
-    string name = GetValueFromUser("\tPlease insert employee's first name: ");
-    string surname = GetValueFromUser("\tPlease insert employee's surname: ");
-    string weekNumber = GetValueFromUser("\tPlease insert week number:");
-
-    if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname) && !string.IsNullOrEmpty(weekNumber))
-    {
-        var employeeInFile = new EmployeeInFile(name, surname, weekNumber);
-
-        employeeInFile.StatisticsAdded += EmployeeStatisticsAdded;
-        DescriptionStatisticsInMemoryText(name, surname, weekNumber);
-
-        while (true)
-        {
-            var input = Console.ReadLine();
-
-            if (input == "q" || input == "Q")
-            {
-                break;
-            }
-            try
-            {
-                employeeInFile.AddProgram(input);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Exception catched: {e.Message}");
-            }
-        }
-        employeeInFile.ShowStatistics();
+        employee.ShowStatistics();
     }
     else
     {
@@ -142,14 +105,14 @@ void BadChoiceInMenuText()
     Console.WriteLine("   You can only enter: M or F or Q key. Try again:");
     Console.WriteLine("--------------------------------------------------");
 }
-void ChoseStatisticsInMemoryFromMenuText()
+void ChooseStatisticsInMemoryFromMenuText()
 {
     Console.WriteLine("-----------------------------------------------");
     Console.WriteLine("Great! You chose display statistics in memory.");
     Console.WriteLine("\tPlease provide personal data:");
     Console.WriteLine("-----------------------------------------------");
 }
-void ChoseStatisticsTxtFile()
+void ChooseStatisticsTxtFile()
 {
     Console.WriteLine("-----------------------------------------------------------");
     Console.WriteLine("Great! You chose display statistics and saving in txt file.");
