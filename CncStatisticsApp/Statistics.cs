@@ -2,7 +2,7 @@
 {
     public class Statistics
     {
-        public float WorkingDays { get; private set; }
+        public string WorkingDays { get; private set; }
         public float MinProgram { get; private set; }
         public float MaxProgram { get; private set; }
         public float CountPrograms { get; private set; }
@@ -11,12 +11,13 @@
         {
             get
             {
-                return this.CountPrograms / WorkingDays;
+                float workingDaysAsFloat = float.Parse(WorkingDays);
+                return this.CountPrograms / workingDaysAsFloat;
             }
         }
-        public Statistics()
+        public Statistics(string workingDays)
         {
-            this.WorkingDays = 5;
+            this.WorkingDays = workingDays;
             this.CountPrograms = 0;
             this.MinProgram = float.MaxValue;
             this.MaxProgram = float.MinValue;

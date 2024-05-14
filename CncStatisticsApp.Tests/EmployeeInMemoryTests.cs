@@ -7,8 +7,9 @@ namespace StatisticsApp.Tests
         [Test]
         public void WhenProgramsAreAdded_ShouldRetursMaxProgram()
         {
+            
             // arrange
-            var employee = new EmployeeInMemory("Jan", "Kowalski", "45");
+            var employee = new EmployeeInMemory("Jan", "Kowalski", "10", "2024", "4");
             employee.AddProgram(3000d);
             employee.AddProgram(3001f);
             employee.AddProgram("3002");
@@ -25,7 +26,7 @@ namespace StatisticsApp.Tests
         public void WhenProgramsAreAdded_ShouldRetursMinProgram()
         {
             // arrange
-            var employee = new EmployeeInMemory("Jan", "Kowalski", "45");
+            var employee = new EmployeeInMemory("Jan", "Kowalski", "10", "2024", "4");
             employee.AddProgram(3000);
             employee.AddProgram(3001);
             employee.AddProgram(3002);
@@ -42,7 +43,7 @@ namespace StatisticsApp.Tests
         public void WhenProgramsAreAdded_ShouldRetursAveragePrograms()
         {
             // arrange
-            var employee = new EmployeeInMemory("Jan", "Kowalski", "45");
+            var employee = new EmployeeInMemory("Jan", "Kowalski", "10", "2024", "5");
             employee.AddProgram(3000);
             employee.AddProgram(3001);
             employee.AddProgram(3002);
@@ -60,7 +61,7 @@ namespace StatisticsApp.Tests
         public void WhenProgramsAreAdded_ShouldRetursCountPrograms()
         {
             // arrange
-            var employee = new EmployeeInMemory("Jan", "Kowalski", "45");
+            var employee = new EmployeeInMemory("Jan", "Kowalski", "10", "2024", "4");
             employee.AddProgram(3000);
             employee.AddProgram(3001);
             employee.AddProgram(3002);

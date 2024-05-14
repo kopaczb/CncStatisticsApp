@@ -1,5 +1,6 @@
 ﻿using static StatisticsApp.EmployeeBase;
 using StatisticsApp;
+using System.Runtime.CompilerServices;
 
 namespace StatisticsApp
 {
@@ -8,14 +9,14 @@ namespace StatisticsApp
         public override event StatisticsAddedDelegated StatisticsAdded;
         private List<float> programs = new List<float>();
 
-        public EmployeeInMemory(string name, string surname, string weekNumber)
-                : base(name, surname, weekNumber)
+        public EmployeeInMemory(string name, string surname, string weekNumber, string year, string workingDays)
+                : base(name, surname, weekNumber, year, workingDays)
         {
         }
 
         public override void AddProgram(float program)
         {
-            if (program >= 3000 && program <= 4000)
+            if (program >= 0 && program <= 6000)
             {
                 this.programs.Add(program);
 
@@ -31,7 +32,7 @@ namespace StatisticsApp
         }
         public override Statistics GetStatistics()
         {
-            var statistics = new Statistics();
+            var statistics = new Statistics(this.WorkingDays);
 
             foreach (var program in this.programs)
             {
